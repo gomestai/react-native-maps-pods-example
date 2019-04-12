@@ -8,7 +8,7 @@ cd ios
 pod init
 ```
 
-Pod dosyasına gir şuradan sonrasını değiştir : `target 'WhatEverYourProjectNameIs' :
+Pod dosyasına gir şuradan sonrasını değiştir : `target 'ProjeIsmi' :
 
 ```
 rn_path = '../node_modules/react-native'
