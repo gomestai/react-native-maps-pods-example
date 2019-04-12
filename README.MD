@@ -3,13 +3,12 @@ react-native init ReactNativeMapsPodsExample
 rm -rf node_modules
 npm i -S react-native@0.49 # there was an issue with the new RN version compartibility
 npm i
-npm i -S git+ssh://git@github.com:react-community/react-native-maps.git #to be up to date with master
+npm install react-native-maps --save
 cd ios
 pod init
-nano Podfile
 ```
 
-replace your Podfile with this after `target 'WhatEverYourProjectNameIs' :
+Pod dosyasına gir şuradan sonrasını değiştir : `target 'WhatEverYourProjectNameIs' :
 
 ```
 rn_path = '../node_modules/react-native'
@@ -49,13 +48,13 @@ post_install do |installer|
 end
 ```
 
-Then run:
+Çalıştır:
 
 ```
 pod install
 ```
 
-Meanwhile get key from: https://developers.google.com/maps/documentation/ios-sdk/get-api-key
+API-KEY şuradan al: https://developers.google.com/maps/documentation/ios-sdk/get-api-key
 
 Add to AppDelegate.m:
 
@@ -77,13 +76,13 @@ import React, { Component } from 'react';
 import {
   StyleSheet
 } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 export default class App extends Component {
   render() {
     return (
       <MapView
-        provider="google"
+        provider={PROVIDER_GOOGLE}
         style={StyleSheet.absoluteFillObject}
       >
         <MapView.Marker
